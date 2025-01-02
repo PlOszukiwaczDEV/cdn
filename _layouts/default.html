@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .directory-list {
+            list-style: none;
+            padding: 0;
+        }
+        .directory-list li {
+            margin: 8px 0;
+        }
+        .directory-list a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    {{ content }}
+</body>
+</html>

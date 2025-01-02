@@ -1,0 +1,6 @@
+plugins:
+  - jekyll-directory-listing
+
+# Optional settings
+show_dir_listing: true
+permalink: pretty
