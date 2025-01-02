@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>{{ page.title | default: site.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <style>
-        body { 
-            font-family: system-ui, -apple-system, sans-serif;
-            margin: 40px auto;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        .directory-list {
-            list-style: none;
-            padding: 0;
-        }
-        .directory-list li {
-            margin: 8px 0;
-        }
-        .directory-list a {
-            color: #0366d6;
-            text-decoration: none;
-        }
+        body { font-family: -apple-system, sans-serif; margin: 2em auto; max-width: 800px; padding: 0 1em; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 0.5em 0; }
+        a { color: #0366d6; text-decoration: none; }
     </style>
 </head>
 <body>
-    {{ content }}
+    <h1>Index of {{ page.dir }}</h1>
+    {% assign entries = site.static_files | where_exp: "item", "item.path contains page.dir" %}
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{{ entry.path | relative_url }}">{{ entry.name }}</a></li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

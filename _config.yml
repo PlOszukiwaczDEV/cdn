@@ -1,6 +1,9 @@
-plugins:
-  - jekyll-directory-listing
-
-# Optional settings
-show_dir_listing: true
+title: CDN
+markdown: kramdown
 permalink: pretty
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "directory"
